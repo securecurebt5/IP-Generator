@@ -69,10 +69,12 @@ for i, j in zip(fst, last):
 					for octet2 in lst2:
 						for octet3 in range(int(i), int(j)+1):
 							print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s.%s.%s"%(octet, octet2, octet3)
+				del lst1
 			elif genindx == 2:
 				for octet in lst2:
 					for octet2 in range(int(i), int(j)+1):
 						print ".".join( [ str(p) for p in fst[0:genindx] ] )+".%s.%s"%(octet, octet2)
+				del lst2
 			else:
 				for octet in range(int(i), int(j)+1):
 					print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s"%octet
