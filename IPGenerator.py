@@ -78,3 +78,4 @@ for i, j in zip(fst, last):
 					print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s"%octet
 		else:	
 			pass
+print "[+] Done"
