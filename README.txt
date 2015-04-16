@@ -3,7 +3,7 @@ This tool generates ALL IPs for a given network
 Note:
   Only CIDRs from /8 to /32 are available 
   if you are interested in generating IPs of a network with a (less than 8) subnet mask,
-  you can add it yourself with the same logic bellow on the IPGenerator Program
+  you can add it yourself with the same logic bellow on the IPGenerator Program.
 Requirements:
   IPCalc.py and IPGenerator.py files must be in the same folder 
 Usage:
