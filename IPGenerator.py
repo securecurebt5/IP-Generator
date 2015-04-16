@@ -42,42 +42,45 @@ lst2 = []
 indxBool1 = False
 indxBool2 = False
 indx = 0
-
-for i, j in zip(fst, last):
-	if i == j:
-		indx+=1
-	else:
-		if indx == 1:
-			for octet in range(int(i), int(j)+1):
-				indxBool1 = True
-				lst1.append(octet)
+try:
+	for i, j in zip(fst, last):
+		if i == j:
 			indx+=1
-		elif indx == 2:
-			for octet in range(int(i), int(j)+1):
-				indxBool2 = True
-				lst2.append(octet)
-			indx+=1
-		elif indx == 3:
-			if indxBool1 is True:
-				genindx = 1
-			elif indxBool2 is True:
-				genindx = 2
-			else:
-				genindx = indx
-			if genindx == 1:
-				for octet in lst1:
-					for octet2 in lst2:
-						for octet3 in range(int(i), int(j)+1):
-							print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s.%s.%s"%(octet, octet2, octet3)
-				del lst1
-			elif genindx == 2:
-				for octet in lst2:
-					for octet2 in range(int(i), int(j)+1):
-						print ".".join( [ str(p) for p in fst[0:genindx] ] )+".%s.%s"%(octet, octet2)
-				del lst2
-			else:
+		else:
+			if indx == 1:
 				for octet in range(int(i), int(j)+1):
-					print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s"%octet
-		else:	
-			pass
-print "[+] Done"
+					indxBool1 = True
+					lst1.append(octet)
+				indx+=1
+			elif indx == 2:
+				for octet in range(int(i), int(j)+1):
+					indxBool2 = True
+					lst2.append(octet)
+				indx+=1
+			elif indx == 3:
+				if indxBool1 is True:
+					genindx = 1
+				elif indxBool2 is True:
+					genindx = 2
+				else:
+					genindx = indx
+				if genindx == 1:
+					for octet in lst1:
+						for octet2 in lst2:
+							for octet3 in range(int(i), int(j)+1):
+								print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s.%s.%s"%(octet, octet2, octet3)
+					del lst1
+				elif genindx == 2:
+					for octet in lst2:
+						for octet2 in range(int(i), int(j)+1):
+							print ".".join( [ str(p) for p in fst[0:genindx] ] )+".%s.%s"%(octet, octet2)
+					del lst2
+				else:
+					for octet in range(int(i), int(j)+1):
+						print ".".join( [ str(p) for p in fst[0:genindx ] ] )+".%s"%octet
+			else:	
+				pass
+	print "[+] Done"
+except KeyboardInterrupt:
+	print "User hit CTRL+C"
+	exit(1)
