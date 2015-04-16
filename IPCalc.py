@@ -10,11 +10,8 @@ class IPrange:
 		self.address = address
 		self.cidr = cidr
 		self.addrlist = self.address.split(".")
-
-	def __repr__(self):
 		print "Program started!"
-		print "Calculation of IPRange for %s/%s has been successfully completed" % (self.address,self.cidr)
-
+		
 	def MASK(self):
 		mask = [0,0,0,0]
 		for i in range(int(self.cidr)):
@@ -65,7 +62,6 @@ def IPCalc(IP_MASK):
 	if "/" in IP_MASK:
 		address, cidr = IP_MASK.split("/")
 		obj = IPrange(address, cidr)
-		obj.__repr__()
 		NETWORK  = ".".join( [ str(octet) for octet in obj.NETWORK()])
 		MASK     = ".".join( [ str(octet) for octet in obj.MASK()])
 		BROADCAST=".".join( [ str(octet) for octet in obj.BROADCAST()])
