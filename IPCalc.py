@@ -10,6 +10,7 @@ class IPrange:
 		self.address = address
 		self.cidr = cidr
 		self.addrlist = self.address.split(".")
+
 	def __repr__(self):
 		print "Program started!"
 		print "Calculation of IPRange for %s/%s has been successfully completed" % (self.address,self.cidr)
@@ -72,4 +73,5 @@ def IPCalc(IP_MASK):
 		LAST_IP  = obj.LAST_ADDR()
 		return NETWORK,MASK,BROADCAST,FIRST_IP, LAST_IP
 	else:
-		print "Please specify a CIDR Network --> 172.16.122.2/22"
+		print "Please, Specify a valid CIDR Network -- 172.16.122.2/22"
+	
