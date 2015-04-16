@@ -17,7 +17,10 @@ if len(argv) != 2:
 	exit(1)
 cidr = argv[1]
 addrs =IPCalc(cidr)
-fst, last = addrs[3], addrs[4]
+try:
+	fst, last = addrs[3], addrs[4]
+except:
+	exit(1)
 lst1 = []
 lst2 = []
 indxBool1 = False
