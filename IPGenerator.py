@@ -15,12 +15,28 @@ from sys import argv
 if len(argv) != 2:
 	print "Usage:\n\tpython %s IP/CIDR\n\ti.e. 172.16.122.10/25"%argv[0]
 	exit(1)
-cidr = argv[1]
-addrs =IPCalc(cidr)
+
+net = argv[1]
+if "/" in net:
+	addr, cidr = net.split("/")
+	try:
+		valid = addr.split(".")
+	except:
+		print "Please, Specify a valid IP address"
+		exit(1)
+	if len(valid) != 4:
+		print "Please, Specify a valid IP address"
+		exit(1)
+	if int(cidr) > 32 or int(cidr) < 0:
+		print "[-] You have specified an invalid netmask"
+		print "[!] Valid values are from 1 ---> 32"
+		exit(1)
+
+addrs =IPCalc(net)
 try:
 	fst, last = addrs[3], addrs[4]
 except:
-	exit(1)
+	exit()
 lst1 = []
 lst2 = []
 indxBool1 = False
